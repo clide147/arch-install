@@ -32,7 +32,7 @@ genfstab -U /mnt/usb > /mnt/usb/etc/fstab
 cp -rfv insideroot.sh /mnt/usb/root
 chmod +x /mnt/usb/root/insideroot.sh
 # enter system as root
-arch-chroot /mnt/usb ~/.insideroot.sh
+arch-chroot /mnt/usb ~/./insideroot.sh
 
 # Finished running.... then unmount and reboot
 umount /mnt/usb/boot /mnt/usb && sync
