@@ -7,13 +7,16 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 echo "What hostname do you want?"
 read hostname
 echo $hostname > /etc/hostname
-echo "127.0.0.1     localhost" >> /etc/hosts
+echo "127.0.0.1     localhost" > /etc/hosts
 echo "::1     localhost" >> /etc/hosts
 echo "127.0.1.1     $hostname.localdomain   $hostname" >> /etc/hosts
-
+echo "\n\n--------------------------------------------------------\n\n"
 #setup Ramdisk:
+sed 's/HOOKS/#HOOKS/g' /etc/mkinitcpio.conf
+
 echo "HOOKS=(base udev block filesystems keyboard fsck)" > /etc/mkinitcpio.conf
 mkinitcpio -p linux
+echo "\n\n--------------------------------------------------------\n\n"
 
 # Setup network interface names to wlan0 and eth0 as default
 ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
@@ -22,26 +25,36 @@ ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
 echo "Storage=volatile" >> /etc/systemd/journald.conf
 echo "SystemMaxUse=16M" >> /etc/systemd/journald.conf
 sed 's/relatime/noatime/g' /etc/fstab
+echo "\n\n--------------------------------------------------------\n\n"
+
+# This might help things:
+rm -f /var/lib/pacman/db.lck
 
 # Install things...
 pacman -Sy --noconfirm pantheon-terminal xorg-server firefox lightdm cinnamon grub efibootmgr networkmanager code git openssh
+echo "\n\n--------------------------------------------------------\n\n"
 
 # Install boot loader
 grub-install --target=i386-pc --boot-directory /boot /dev/$DISK_FOR_SCRIPT
 grub-mkconfig -o /boot/grub/grub.cfg
+echo "\n\n--------------------------------------------------------\n\n"
 
 # Enable things
 systemctl enable NetworkManager
 systemctl enable lightdm
 systemctl enable openssh
+echo "\n\n--------------------------------------------------------\n\n"
 
 # Install video drivers:
 pacman -S --noconfirm xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau xf86-video-vesa
+echo "\n\n--------------------------------------------------------\n\n"
 
 # Install laptop things:
 pacman -S --noconfirm xf86-input-synaptics acpi
+echo "\n\n--------------------------------------------------------\n\n"
 
 #Create root password
+echo "Enter the root password: "
 passwd
 
 # Create user
