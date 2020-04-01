@@ -1,8 +1,8 @@
 # Setup locale and hostname
 ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
-hwclock -systohc
+hwclock --systohc
 echo en_US.UTF-8 UTF-8 > /etc/locale.gen
-locale.gen
+locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 echo "What hostname do you want?"
 read hostname
@@ -33,19 +33,21 @@ systemctl enable lightdm
 systemctl enable openssh
 
 # Install video drivers:
-pacman -S xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau xf86-video-vesa
+pacman -Sy xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau xf86-video-vesa
 
 # Install laptop things:
-pacman -S xf86-input-synaptics acpi
+pacman -Sy xf86-input-synaptics acpi
 
 #Create root password
 passwd
 
 # Create user
+echo "Enter username: "
 read Username
 useradd -m $Username
 usermod -a -G wheel $Username
 echo "%wheel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-
+echo "Enter $Username's Password:"
+passwd $Username
 # Finish up and Reboot:
 exit
