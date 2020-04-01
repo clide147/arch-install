@@ -58,8 +58,9 @@ sed 's/relatime/noatime/g' /etc/fstab
 grub-install --target=i386-pc --boot-directory /boot /dev/$disk
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# Enable networking
+# Enable networking & lightdm
 systemctl enable NetworkManager
+systemctl enable lightdm
 
 # Install video drivers:
 pacman -S xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau xf86-video-vesa
