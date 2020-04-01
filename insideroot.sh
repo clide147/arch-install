@@ -24,7 +24,7 @@ echo "SystemMaxUse=16M" >> /etc/systemd/journald.conf
 sed 's/relatime/noatime/g' /etc/fstab
 
 # Install things...
-pacman -S --noconfirm pantheon-terminal xorg-server firefox lightdm cinnamon grub efibootmgr networkmanager code git openssh
+pacman -Sy --noconfirm pantheon-terminal xorg-server firefox lightdm cinnamon grub efibootmgr networkmanager code git openssh
 
 # Install boot loader
 grub-install --target=i386-pc --boot-directory /boot /dev/$DISK_FOR_SCRIPT
