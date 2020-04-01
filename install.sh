@@ -4,8 +4,6 @@ timedatectl set-ntp true
 lsblk
 echo "Select disk (sda or sdb):"
 read disk
-export DISK_FOR_SCRIPT=$disk
-echo "Disk saved: $DISK_FOR_SCRIPT"
 sgdisk --zap-all /dev/$disk                     # Erase everything
 sgdisk -n 0:0:+10MiB -t 0:ef02 /dev/$disk       # Bios Boot
 sgdisk -n 0:0:+500Mib -t 0:ef00 /dev/$disk      # EFI partition
