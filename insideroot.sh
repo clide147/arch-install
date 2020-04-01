@@ -33,10 +33,10 @@ systemctl enable lightdm
 systemctl enable openssh
 
 # Install video drivers:
-pacman -Sy xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau xf86-video-vesa
+pacman -S --noconfirm xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau xf86-video-vesa
 
 # Install laptop things:
-pacman -Sy xf86-input-synaptics acpi
+pacman -S --noconfirm xf86-input-synaptics acpi
 
 #Create root password
 passwd
