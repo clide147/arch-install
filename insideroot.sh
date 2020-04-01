@@ -69,4 +69,9 @@ echo "Enter $Username's Password:"
 passwd $Username
 # Finish up and Reboot:
 
+##############
+# SETUP ZSH? #
+##############
+
+
 echo "You have finished the script, please reboot the computer and log in!"
