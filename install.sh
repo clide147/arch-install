@@ -11,14 +11,14 @@ sgdisk -n 0:0:0 -t 0:8300 /dev/$disk            # Linux
 sgdisk -p /dev/$disk                            # List partitions, just in case.
 
 # Format drives.
-mkfs.fat -F32 /dev/$disk2
-mkfs.ext4 /dev/$disk3
+mkfs.fat -F32 /dev/${disk}2
+mkfs.ext4 /dev/${disk}3
 
 # Mount.
 mkdir -p /mnt/usb
-mount /dev/$disk3 /mnt/usb
+mount /dev/${disk}3 /mnt/usb
 mkdir /mnt/usb/boot
-mount /dev/$disk2 /mnt/usb/boot
+mount /dev/${disk}2 /mnt/usb/boot
 
 # Install base system.
 pacstrap /mnt/usb linux linux-firmware base base-devel nano pantheon-terminal xorg-server lightdm cinnamon grub efibootmgr networkmanager
