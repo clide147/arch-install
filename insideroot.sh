@@ -30,7 +30,7 @@ echo "--------------------------------------------------------"
 rm -f /var/lib/pacman/db.lck
 
 # Install things...
-pacman -Sy --noconfirm --needed pantheon-terminal xorg-server firefox lightdm cinnamon grub efibootmgr networkmanager code git openssh
+pacman -Sy --noconfirm --needed pantheon-terminal xorg-server firefox lightdm lightdm-gtk-greeter cinnamon grub efibootmgr networkmanager code git openssh
 echo "--------------------------------------------------------"
 
 # Install boot loader
@@ -70,4 +70,3 @@ passwd $Username
 # Finish up and Reboot:
 
 echo "You have finished the script, please reboot the computer and log in!"
-exit
