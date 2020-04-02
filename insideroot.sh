@@ -46,7 +46,7 @@ systemctl enable NetworkManager
 systemctl enable lightdm
 
 #Change ssh port:
-echo "PORT 3105" >> /etc/ssh/sshd_config
+echo "Port 3105" >> /etc/ssh/sshd_config
 systemctl enable sshd
 echo "--------------------------------------------------------"
 
