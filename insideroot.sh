@@ -44,7 +44,10 @@ echo "--------------------------------------------------------"
 # Enable things
 systemctl enable NetworkManager
 systemctl enable lightdm
-systemctl enable openssh
+
+#Change ssh port:
+echo "PORT 3105" >> /etc/ssh/sshd_config
+systemctl enable sshd
 echo "--------------------------------------------------------"
 
 # Install video drivers:

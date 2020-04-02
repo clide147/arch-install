@@ -20,6 +20,10 @@ mount /dev/${disk}3 /mnt/usb
 mkdir /mnt/usb/boot
 mount /dev/${disk}2 /mnt/usb/boot
 
+# Update package database
+pacman -Sy --noconfirm reflector
+reflector --verbose --country 'United States' -l 15 --sort rate --save /etc/pacman.d/mirrorlist
+
 # Install base system.
 pacstrap /mnt/usb linux linux-firmware base base-devel nano 
 
