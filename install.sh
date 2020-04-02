@@ -32,6 +32,7 @@ genfstab -U /mnt/usb > /mnt/usb/etc/fstab
 
 # Copy post-install to root directory
 cp -rfv insideroot.sh /mnt/usb/root
+cp -rfv installsoftwares.sh /mnt/usb/root
 chmod +x /mnt/usb/root/insideroot.sh
 # enter system as root
 arch-chroot /mnt/usb ~/./insideroot.sh

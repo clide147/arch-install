@@ -75,6 +75,8 @@ passwd $Username
 ##############
 # SETUP ZSH? #
 ##############
-
+chmod +x installsoftwares.sh
+cp -rfv installsoftwares.sh /home/$Username
+su $Username ./installsoftwares.sh
 
 echo "You have finished the script, please reboot the computer and log in!"
