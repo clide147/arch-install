@@ -1,8 +1,15 @@
+uuidline=blkid | grep "/dev/sda2"
+echo $uuidline
+
+PART_ID=$(blkid -o value -s UUID /dev/sda2)
+echo $PART_ID
+
+read -p "Pause"
+
 bootctl install
 cat <<EOF > /boot/loader/entries/arch.conf
 title   Arch Linux
 linux   /vmlinuz-linux
-initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options root="LABEL=ROOT" rw
 EOF
