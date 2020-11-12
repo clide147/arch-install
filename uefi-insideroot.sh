@@ -8,19 +8,19 @@ initrd  /initramfs-linux.img
 options root=${DISK}1 rw
 EOF
 
-echo "--------------------------------------"
-echo "--          Network Setup           --"
-echo "--------------------------------------"
-pacman -S networkmanager dhclient --noconfirm --needed
-systemctl enable --now NetworkManager
+# echo "--------------------------------------"
+# echo "--          Network Setup           --"
+# echo "--------------------------------------"
+# pacman -S networkmanager dhclient --noconfirm --needed
+# systemctl enable --now NetworkManager
 
-echo "--------------------------------------"
-echo "--      Set Password for Root       --"
-echo "--------------------------------------"
-echo "Enter password for root user: "
-passwd root
+# echo "--------------------------------------"
+# echo "--      Set Password for Root       --"
+# echo "--------------------------------------"
+# echo "Enter password for root user: "
+# passwd root
 
-exit
+# exit
 
 # ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 # hwclock --systohc
