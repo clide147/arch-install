@@ -8,6 +8,7 @@ initrd  /initramfs-linux.img
 options root=${DISK}1 rw
 EOF
 
+read -p "pause"
 # echo "--------------------------------------"
 # echo "--          Network Setup           --"
 # echo "--------------------------------------"
