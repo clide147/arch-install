@@ -19,10 +19,6 @@ mount /dev/${disk}2 /mnt
 mkdir /mnt/boot
 mount /dev/${disk}1 /mnt/boot
 
-# Update package database
-pacman -Sy --noconfirm reflector
-reflector --verbose --country 'United States' -l 15 --sort rate --save /etc/pacman.d/mirrorlist
-
 # Install base system.
 pacstrap /mnt linux linux-firmware base base-devel nano sudo --noconfirm --needed
 

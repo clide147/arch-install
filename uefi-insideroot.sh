@@ -1,8 +1,6 @@
 PART_ID=$(blkid -o value -s UUID /dev/sda2)
 echo $PART_ID
 
-read -p "Pause"
-
 bootctl install
 cat <<EOF > /boot/loader/entries/arch.conf
 title   Arch Linux
@@ -13,20 +11,19 @@ EOF
 
 cat /boot/loader/entries/arch.conf
 
-read -p "pause"
-# echo "--------------------------------------"
-# echo "--          Network Setup           --"
-# echo "--------------------------------------"
-# pacman -S networkmanager dhclient --noconfirm --needed
-# systemctl enable --now NetworkManager
+echo "--------------------------------------"
+echo "--          Network Setup           --"
+echo "--------------------------------------"
+pacman -S networkmanager dhclient --noconfirm --needed
+systemctl enable --now NetworkManager
 
-# echo "--------------------------------------"
-# echo "--      Set Password for Root       --"
-# echo "--------------------------------------"
-# echo "Enter password for root user: "
-# passwd root
+echo "--------------------------------------"
+echo "--      Set Password for Root       --"
+echo "--------------------------------------"
+echo "Enter password for root user: "
+passwd root
 
-# exit
+exit
 
 # ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 # hwclock --systohc
