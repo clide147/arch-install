@@ -1,12 +1,13 @@
-echo "What was the drive path again? (/dev/sda)"
-read DISK
 bootctl install
 cat <<EOF > /boot/loader/entries/arch.conf
-title Arch Linux  
-linux /vmlinuz-linux  
-initrd  /initramfs-linux.img  
-options root=${DISK}1 rw
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+options root="LABEL=ROOT" rw
 EOF
+
+cat /boot/loader/entries/arch.conf
 
 read -p "pause"
 # echo "--------------------------------------"
