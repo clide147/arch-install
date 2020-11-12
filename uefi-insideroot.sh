@@ -1,6 +1,3 @@
-uuidline=blkid | grep "/dev/sda2"
-echo $uuidline
-
 PART_ID=$(blkid -o value -s UUID /dev/sda2)
 echo $PART_ID
 
@@ -11,7 +8,7 @@ cat <<EOF > /boot/loader/entries/arch.conf
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
-options root="LABEL=ROOT" rw
+options root="UUID=${PART_ID}" rw
 EOF
 
 cat /boot/loader/entries/arch.conf
