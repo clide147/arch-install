@@ -86,18 +86,8 @@ sudo systemctl enable --now lightdm.service
 
 # ------------------------------------------------------------------------
 
-echo -e "\nEnabling bluetooth daemon and setting it to auto-start"
+echo -e "\nEnabling the NetworkManager instead of dhcpd"
 
-sudo sed -i 's|#AutoEnable=false|AutoEnable=true|g' /etc/bluetooth/main.conf
-sudo systemctl enable --now bluetooth.service
-
-# ------------------------------------------------------------------------
-
-echo -e "\nEnabling the cups service daemon so we can print"
-
-systemctl enable --now org.cups.cupsd.service
-sudo ntpd -qg
-sudo systemctl enable --now ntpd.service
 sudo systemctl disable dhcpcd.service
 sudo systemctl stop dhcpcd.service
 sudo systemctl enable --now NetworkManager.service

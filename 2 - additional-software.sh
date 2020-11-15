@@ -81,23 +81,14 @@ PKGS=(
     'python'                # Scripting language
     'yarn'                  # Dependency management (Hyper needs this)
 
-    # MEDIA ---------------------------------------------------------------
-
-    'kdenlive'              # Movie Render
-    'obs-studio'            # Record your screen
-    'celluloid'             # Video player
-    
-    # GRAPHICS AND DESIGN -------------------------------------------------
-
-    'gcolor2'               # Colorpicker
-    'gimp'                  # GNU Image Manipulation Program
-    'ristretto'             # Multi image viewer
-
     # PRODUCTIVITY --------------------------------------------------------
 
     'hunspell'              # Spellcheck libraries
     'hunspell-en'           # English spellcheck library
     'xpdf'                  # PDF viewer
+
+    # WEB -----------------------------------------------------------------
+    'firefox'
 
 )
 
