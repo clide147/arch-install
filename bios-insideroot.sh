@@ -1,3 +1,6 @@
+pacman -Sy --noconfirm --needed xorg-server firefox lightdm lightdm-gtk-greeter grub efibootmgr networkmanager code git openssh
+
+
 # Install boot loader
 echo "What was the disk again?"
 read disk2
