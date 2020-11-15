@@ -18,11 +18,10 @@ EOF
 pacman -S networkmanager
 systemctl enable NetworkManager
 
-echo "ROOT PASSWORD"
 passwd
 
 useradd -m -g users -G audio,video,network,wheel,storage,rfkill -s /bin/bash mitchell
-echo "MITCHELL PASSWORD"
+
 passwd mitchell
 sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 
