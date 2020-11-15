@@ -13,8 +13,8 @@ mkfs.fat -F32 /dev/${disk}1
 mkfs.ext4 -F /dev/${disk}2
 
 # Mount.
-mkdir -p /mnt
 mount /dev/${disk}2 /mnt
+mkdir /mnt/boot
 mkdir /mnt/boot/efi
 mount /dev/${disk}1 /mnt/boot/efi
 pacstrap /mnt base base-devel linux linux-firmware nano
