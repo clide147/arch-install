@@ -27,7 +27,6 @@ genfstab -U /mnt > /mnt/etc/fstab
 
 # Copy post-install to root directory
 cp -rfv uefi-insideroot.sh /mnt/root
-cp -rfv installsoftwares.sh /mnt/root
 chmod +x /mnt/root/uefi-insideroot.sh
 # enter system as root
 arch-chroot /mnt ~/./uefi-insideroot.sh

@@ -1,4 +1,4 @@
-pacman -Sy --noconfirm --needed xorg-server firefox lightdm lightdm-gtk-greeter grub efibootmgr networkmanager code git openssh
+pacman -Sy --noconfirm --needed xorg-server firefox lightdm lightdm-gtk-greeter grub efibootmgr networkmanager code git openssh awesome
 
 
 # Install boot loader

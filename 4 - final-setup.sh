@@ -72,14 +72,6 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 
 # ------------------------------------------------------------------------
 
-echo -e "\nDisabling Pulse .esd_auth module"
-
-# Pulse audio loads the `esound-protocol` module, which best I can tell is rarely needed.
-# That module creates a file called `.esd_auth` in the home directory which I'd prefer to not be there. So...
-sudo sed -i 's|load-module module-esound-protocol-unix|#load-module module-esound-protocol-unix|g' /etc/pulse/default.pa
-
-# ------------------------------------------------------------------------
-
 echo -e "\nEnabling Login Display Manager"
 
 sudo systemctl enable --now lightdm.service
