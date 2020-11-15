@@ -29,9 +29,9 @@ genfstab -U /mnt > /mnt/etc/fstab
 
 # Copy post-install to root directory
 cp -rfv bios-insideroot.sh /mnt/root
-chmod +x /mnt/root/insideroot.sh
+chmod +x /mnt/root/bios-insideroot.sh
 # enter system as root
-arch-chroot /mnt ~/./insideroot.sh
+arch-chroot /mnt ~/./bios-insideroot.sh
 
 # Finished running.... then unmount and reboot
 umount /mnt/boot /mnt && sync
