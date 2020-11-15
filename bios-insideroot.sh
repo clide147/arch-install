@@ -1,5 +1,6 @@
 PART_ID=$(blkid -o value -s UUID /dev/sda1)
 echo $PART_ID
+read -p "Pause\n\n\n"
 
 bootctl install
 cat <<EOF > /boot/loader/entries/arch.conf
@@ -11,6 +12,7 @@ EOF
 
 cat /boot/loader/entries/arch.conf
 
+read -p "Pause\n\n\n"
 echo "--------------------------------------"
 echo "--          Network Setup           --"
 echo "--------------------------------------"
