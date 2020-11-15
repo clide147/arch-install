@@ -1,23 +1,14 @@
-PART_ID=$(blkid -o value -s UUID /dev/sda1)
-echo $PART_ID
-read -p "Pause\n\n\n"
+# Install boot loader
+echo "What was the disk again?"
+read disk2
+echo "Drive for boot: $disk2"
+grub-install --target=i386-pc --boot-directory /boot /dev/$disk2
+grub-mkconfig -o /boot/grub/grub.cfg
+echo "--------------------------------------------------------"
 
-bootctl install
-cat <<EOF > /boot/loader/entries/arch.conf
-title   Arch Linux
-linux   /vmlinuz-linux
-initrd  /initramfs-linux.img
-options root="UUID=${PART_ID}" rw
-EOF
-
-cat /boot/loader/entries/arch.conf
-
-read -p "Pause\n\n\n"
-echo "--------------------------------------"
-echo "--          Network Setup           --"
-echo "--------------------------------------"
-pacman -S networkmanager dhclient --noconfirm --needed
-systemctl enable --now NetworkManager
+# Enable things
+systemctl enable NetworkManager
+systemctl enable lightdm
 
 echo "--------------------------------------"
 echo "--      Set Password for Root       --"
