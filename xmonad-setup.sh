@@ -25,7 +25,5 @@ chmod +x /mnt/root/xmonad-inside.sh
 # enter system as root
 arch-chroot /mnt ~/./xmonad-inside.sh
 
-arch-chroot /mnt
-
 umount -R /mnt
 reboot
